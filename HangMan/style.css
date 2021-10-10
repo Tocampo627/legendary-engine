@@ -1,0 +1,43 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+body {
+  background-color: rgb(247, 233, 248);
+  font-family: "Lucida Sans", "Lucida Sans Regular", "Lucida Grande",
+    "Lucida Sans Unicode", Geneva, Verdana, sans-serif;
+  size: 20px;
+  padding: 50px;
+}
+h1 {
+  font-size: 40px;
+  margin-bottom: 25px;
+}
+h3 {
+  text-decoration: underline rgba(92, 0, 95, 0.986);
+}
+p {
+  padding: 25px;
+}
+.headers {
+  color: rgba(92, 0, 95, 0.986);
+}
+
+#your-guess {
+  background-color: rgb(241, 209, 239);
+  border: 5px solid;
+  border-color: black;
+  width: 450px;
+  padding: 25px;
+  margin-top: 30px;
+}
+input,
+button {
+  padding: 10px;
+  font-size: 16px;
+}
+#man-image {
+  width: 300px;
+  height: 300px;
+}
