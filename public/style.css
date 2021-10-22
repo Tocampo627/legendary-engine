@@ -19,9 +19,20 @@ h3 {
 }
 p {
   padding: 25px;
+  font-family: "Trebuchet MS", "Lucida Sans Unicode", "Lucida Grande",
+    "Lucida Sans", Arial, sans-serif;
+}
+.lettercount {
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+  font-size: 25px;
+  text-decoration: rgba(92, 0, 95, 0.986);
 }
 .headers {
   color: rgba(92, 0, 95, 0.986);
+}
+.theword {
+  padding-bottom: 25px;
+  font-size: 50px;
 }
 
 #your-guess {
@@ -31,6 +42,7 @@ p {
   width: 450px;
   padding: 25px;
   margin-top: 30px;
+  float: right;
 }
 input,
 button {
@@ -40,4 +52,6 @@ button {
 #man-image {
   width: 300px;
   height: 300px;
+  float: left;
+  padding-bottom: 20px;
 }

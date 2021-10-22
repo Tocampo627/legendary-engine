@@ -12,11 +12,13 @@
       <h1 class="headers">Lets Play Hangman!</h1>
       <h3 class="headers">Instructions:</h3>
       <p class="first">
-        The isntructions are simple. In the game of hangman, there is a secret
+        The instructions are simple. In the game of hangman, there is a secret
         word you must guess You can only guess one letter at the time You will
         be prompted to enter a letter until you run out of chances or guess the
         entire word.
       </p>
+      <p class="lettercount">Your word has:</p>
+      <div class="theword">WORD</div>
       <img
         id="man-image"
         src="https://inkboxdesigns.imgix.net/product_stencils/cyan/cut_2279-2.jpg?auto=compress,format&con=100&gam=100&pad=20&bg=F4F5F7&fit=fill&duotone=000000,F4F5F7"
@@ -24,11 +26,14 @@
 
       <form id="your-guess">
         <h1 class="message-header">Enter your guess!</h1>
-
-        <input type="text" placeholder="Your guess" class="guess" />
-        <button class="ok">OK!</button>
+        <!-- the ok button -->
+        <!-- <input type="text" placeholder="Your guess" class="guess" />
+        <button class="ok">OK!</button> -->
+        <!-- the letter button -->
+        <button class="bottonA" onclick="setLetter('A');">a</button>
+        <!-- <input type="button" value="a" class="guess" /> -->
       </form>
     </main>
-    <script src="script.js"></script>
+    <script src="../src/index.js"></script>
   </body>
 </html>
