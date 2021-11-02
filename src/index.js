@@ -1,7 +1,6 @@
 "use strict";
 const secretWordArray = [
   "MEXICO",
-  "UNITED STATES",
   "FRANCE",
   "JAPAN",
   "GHANA",
@@ -21,13 +20,24 @@ let maxWrong = 7;
 let mistakes = 0;
 let guessed = [];
 let clickedLetter = null;
-//selecting random word
+
 const randomWord = () => {
   secretWord =
     secretWordArray[Math.floor(Math.random() * secretWordArray.length)];
   console.log(secretWord);
 };
 randomWord();
+
+//functions that  control the HTML text
+const statustDisplay = () => {
+  document.getElementById(
+    "yes-no"
+  ).innerHTML = `Your Word Has: ${secretWord.length} letters!`;
+};
+statustDisplay();
+const enterYourGuess = () => {
+  document.getElementById("enter-Your-Guess").innerHTML = "Enter Your Guess!";
+};
 // generate the functions for the keyboard
 const generateButtons = () => {
   let buttonsHtml = "ABCDEFGHIJKLMNOPQRSTUVWXYZ"
@@ -39,7 +49,7 @@ const generateButtons = () => {
       id='` +
         letter +
         `'
-      onClick ="handleGuess('` +
+      onClick ="handleGuess ('` +
         letter +
         `')">
       ` +
@@ -56,24 +66,8 @@ generateButtons();
 
 // working with the max wrong
 document.getElementById("max-wrong").innerHTML = maxWrong;
-// working with word status
-const handleGuess = (chosenLetter) => {
-  guessed.indexOf(chosenLetter) === -1 ? guessed.push(chosenLetter) : null;
-  document.getElementById(chosenLetter).setAttribute("disabled", true);
-  //alert(secretWord);
-  if (secretWord.indexOf(chosenLetter) >= 0) {
-    guessedWord();
-  } else if (secretWord.indexOf(chosenLetter) === -1) {
-    mistakes++;
-    updateMistakes();
-  }
-};
-
-// TODO have clicked buttons darken when clicked
-//TODO make the reset button refresh the page
-//Checking if the guessed letter is in the secret word
 const guessedWord = () => {
-  let clickedLetter = secretWord
+  clickedLetter = secretWord
     .split("")
     .map((letter) => (guessed.indexOf(letter) >= 0 ? letter : " _ "))
     .join("");
@@ -81,12 +75,52 @@ const guessedWord = () => {
   console.log(clickedLetter);
 };
 guessedWord();
-// Updating the counter/ mistakes
+// working with word status
+const handleGuess = (chosenLetter) => {
+  guessed.indexOf(chosenLetter) === -1 ? guessed.push(chosenLetter) : null;
+  document.getElementById(chosenLetter).setAttribute("disabled", "disabled");
+
+  //alert(secretWord);
+  if (secretWord.indexOf(chosenLetter) >= 0) {
+    guessedWord();
+    checkIfGameWon();
+  } else if (secretWord.indexOf(chosenLetter) === -1) {
+    mistakes++;
+    updateMistakes();
+    checkIfGameLost();
+    updateHangManPic();
+  }
+};
+const changeImage = () => {};
+
+const checkIfGameWon = () => {
+  if (clickedLetter === secretWord) {
+    document.getElementById("yes-no").innerHTML = "YOU WON 🥇";
+  }
+};
+const checkIfGameLost = () => {
+  if (mistakes === maxWrong) {
+    document.getElementById(
+      "the-words"
+    ).innerHTML = `The answer was ${secretWord}!`;
+    //disappear the keyboard
+    document.getElementById("keyboard").setAttribute("disabled", true);
+    document.getElementById("yes-no").innerHTML = "YOU LOST 👎";
+    document.getElementById("enter-Your-Guess").innerHTML = "NICE TRY ";
+  }
+};
+
 const updateMistakes = () => {
   document.getElementById("mistakes").innerHTML = mistakes;
 };
-
-// TODO Display yes if letter is found display no if not
-document.querySelector(
-  ".lettercount"
-).textContent = `Your secret word has: ${secretWord.length} letters!`;
+const reset = () => {
+  mistakes = 0;
+  guessed = [];
+  clickedLetter = null;
+  randomWord();
+  guessedWord();
+  updateMistakes();
+  generateButtons();
+  statustDisplay();
+  enterYourGuess();
+};

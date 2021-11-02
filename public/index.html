@@ -27,15 +27,25 @@
       <div id="the-words" class="theword">WORD</div>
       <img
         id="man-image"
+        onclick="changeImage()"
         src="https://lh3.googleusercontent.com/Vl0m41JpanVyOcfU8mjKLgBxTqHny_w--eqqhB7Vb_SrTc1a08IdjP02h9a_G_S4-R7Y1TkeDycbPh4dzh1ZFuZ8HRp17BqGfEmNgVbHJtxmZ1qPna-QYSqP2O9jpb_hduyefsaMig=w2400"
       />
 
-      <div class="your-guess">
-        <p class="message-header">Enter Your Guess!</p>
-        <div id="keyboard"></div>
-        <button id="reseting" class="btn btn-info" value="RESET">RESET</button>
+      <class class="your-guess">
+        <p id="enter-Your-Guess" class="message-header">Enter Your Guess!</p>
+       
+        <div id="keyboard" ></div>
+        </class>
+        <button
+          id="reseting"
+          class="btn btn-info"
+          value="RESET"
+          onClick="reset()"
+        >
+          RESET
+        </button>
       </div>
     </main>
-    <script src="../src/index.js"></script>
+    <script src="index.js"></script>
   </body>
 </html>
