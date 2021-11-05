@@ -91,7 +91,11 @@ const handleGuess = (chosenLetter) => {
     updateHangManPic();
   }
 };
-const changeImage = () => {};
+// const changeImage = () => {
+//   let manImage = document.getElementById('man-image');
+//   if(manImage.scroll.match(https://lh3.googleusercontent.com/Vl0m41JpanVyOcfU8mjKLgBxTqHny_w--eqqhB7Vb_SrTc1a08IdjP02h9a_G_S4-R7Y1TkeDycbPh4dzh1ZFuZ8HRp17BqGfEmNgVbHJtxmZ1qPna-QYSqP2O9jpb_hduyefsaMig=w2400));
+
+// };
 
 const checkIfGameWon = () => {
   if (clickedLetter === secretWord) {
