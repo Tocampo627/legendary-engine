@@ -35,8 +35,7 @@ const statustDisplay = () => {
 };
 statustDisplay();
 const enterYourGuess = () => {
-  const gettingEnterYourGuess = document.getElementById("enter-Your-Guess").textContent
-  gettingEnterYourGuess = "Enter Your Guess!";
+    document.getElementById("enter-Your-Guess").textContent ="Enter Your Guess!" ;
 };
 // generate the functions for the keyboard
 const generateButtons = () => {
@@ -65,14 +64,14 @@ const generateButtons = () => {
 generateButtons();
 
 // setting max worng 
-document.getElementById("max-wrong").innerText = maxWrong;
+document.getElementById("max-wrong").textContent = maxWrong;
 //displayin gletters guessed if right then show the letter if wrong show _
 const guessedWord = () => {
   clickedLetter = secretWord
     .split("")
     .map((letter) => (guessed.indexOf(letter) >= 0 ? letter : " _ "))
     .join("");
-  document.getElementById("the-words").innerText = clickedLetter;
+  document.getElementById("the-words").textContent = clickedLetter;
   //console.log(clickedLetter);
 };
 guessedWord();
@@ -92,13 +91,11 @@ const handleGuess = (chosenLetter) => {
     //updateHangManPic();
   }
 };
-// const resetManImage =()=>{
-//   let manImage= document.getElementById("man-image");
-// }
+
 const changeImage = () => {
   let manImage= document.getElementById("man-image");
   //mistakes =the number of wrong guesses
-  //console.log(mistakes)
+  console.log(mistakes)
   switch (mistakes){
     case 0:
       manImage.src="https://lh3.googleusercontent.com/Vl0m41JpanVyOcfU8mjKLgBxTqHny_w--eqqhB7Vb_SrTc1a08IdjP02h9a_G_S4-R7Y1TkeDycbPh4dzh1ZFuZ8HRp17BqGfEmNgVbHJtxmZ1qPna-QYSqP2O9jpb_hduyefsaMig=w2400";
@@ -126,24 +123,26 @@ const changeImage = () => {
       break; 
     default:
       null
+      break;
   }
 }
 changeImage()
 
 const checkIfGameWon = () => {
   if (clickedLetter === secretWord) {
-    document.getElementById("yes-no").innerHTML = "YOU WON 🥇";
+    document.getElementById("yes-no").textContent = "YOU WON 🥇";
   }
 };
+// when reaching game over 
 const checkIfGameLost = () => {
   if (mistakes === maxWrong) {
     document.getElementById(
       "the-words"
-    ).innerHTML = `The answer was ${secretWord}!`;
+    ).textContent = `The answer was ${secretWord}!`;
     //disappear the keyboard
     document.getElementById("keyboard").setAttribute("disabled", true);
-    document.getElementById("yes-no").innerHTML = "YOU LOST 👎";
-    document.getElementById("enter-Your-Guess").innerHTML = "NICE TRY ";
+    document.getElementById("yes-no").textContent = "YOU LOST 👎";
+    document.getElementById("enter-Your-Guess").textContent = "NICE TRY ";
   }
 };
 const hiddenKeyboard= ()=>{
@@ -157,7 +156,7 @@ const visibleKeyboard =() =>{
   }
 }
 const updateMistakes = () => {
-  document.getElementById("mistakes").innerHTML = mistakes;
+  document.getElementById("mistakes").textContent = mistakes;
 };
 const reset = () => {
   mistakes = 0;
@@ -171,4 +170,5 @@ const reset = () => {
   statustDisplay();
   enterYourGuess();
   changeImage()
+  //backgroundColor();
 };
